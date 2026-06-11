@@ -860,6 +860,200 @@
       .topbar { flex-direction: column; align-items: flex-start; }
       #rsvp-toast { left: 16px; right: 16px; bottom: 16px; }
     }
+    /* ===== MUSIC PLAYER ===== */
+    #music-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.07);
+      color: var(--text);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      transition: all .2s ease;
+      position: relative;
+    }
+
+    #music-btn:hover {
+      background: rgba(255,255,255,0.14);
+      border-color: var(--border-glow);
+    }
+
+    #music-btn.playing {
+      border-color: rgba(255,209,102,0.6);
+      box-shadow: 0 0 16px rgba(255,209,102,0.25);
+    }
+
+    .music-popup {
+      position: fixed;
+      bottom: 90px;
+      right: 24px;
+      z-index: 500;
+      width: 260px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(8,14,28,0.92);
+      border: 1px solid rgba(255,209,102,0.3);
+      backdrop-filter: blur(24px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 30px rgba(255,209,102,0.1);
+      transform: translateY(16px) scale(0.95);
+      opacity: 0;
+      pointer-events: none;
+      transition: all .3s cubic-bezier(0.34,1.4,0.64,1);
+    }
+
+    .music-popup.show {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .music-popup-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .music-title {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .music-popup-close {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      border: none;
+      background: rgba(255,255,255,0.08);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 11px;
+      display: grid;
+      place-items: center;
+      transition: background .15s;
+    }
+
+    .music-popup-close:hover { background: rgba(255,255,255,0.16); }
+
+    /* Equalizer bars */
+    .music-eq {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .eq-bar {
+      width: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      animation: eq-idle 1.2s ease-in-out infinite;
+      height: 4px;
+    }
+
+    .eq-bar:nth-child(1) { animation-delay: 0s; }
+    .eq-bar:nth-child(2) { animation-delay: 0.2s; }
+    .eq-bar:nth-child(3) { animation-delay: 0.1s; }
+    .eq-bar:nth-child(4) { animation-delay: 0.3s; }
+
+    @keyframes eq-idle {
+      0%, 100% { height: 4px; opacity: 0.4; }
+      50% { height: 4px; opacity: 0.4; }
+    }
+
+    .music-eq.active .eq-bar {
+      animation: eq-dance 0.6s ease-in-out infinite alternate;
+    }
+
+    .music-eq.active .eq-bar:nth-child(1) { animation-duration: 0.5s; }
+    .music-eq.active .eq-bar:nth-child(2) { animation-duration: 0.7s; }
+    .music-eq.active .eq-bar:nth-child(3) { animation-duration: 0.4s; }
+    .music-eq.active .eq-bar:nth-child(4) { animation-duration: 0.8s; }
+
+    @keyframes eq-dance {
+      from { height: 4px; opacity: 0.5; }
+      to   { height: 18px; opacity: 1; }
+    }
+
+    .music-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .music-play-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,209,102,0.4);
+      background: rgba(255,209,102,0.12);
+      color: var(--gold);
+      font-size: 14px;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: all .18s ease;
+      flex-shrink: 0;
+    }
+
+    .music-play-btn:hover {
+      background: rgba(255,209,102,0.22);
+      transform: scale(1.08);
+    }
+
+    .music-vol-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .vol-slider {
+      flex: 1;
+      height: 4px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: rgba(255,255,255,0.12);
+      border-radius: 99px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .vol-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 8px rgba(255,209,102,0.5);
+    }
+
+    .music-note {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .music-note code {
+      color: var(--cyan);
+      font-size: 10.5px;
+      background: rgba(61,217,245,0.08);
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+
   </style>
 </head>
 <body>
@@ -873,6 +1067,35 @@
 
 <!-- Confetti canvas -->
 <canvas id="confetti-canvas"></canvas>
+
+<!-- Background Audio -->
+<audio id="bg-audio" loop preload="none">
+  <source src="music/nhac-nen.mp3" type="audio/mpeg">
+  <source src="music/nhac-nen.ogg" type="audio/ogg">
+</audio>
+
+<!-- Music Player Popup -->
+<div id="music-popup" class="music-popup" aria-label="Music player" role="complementary">
+  <div class="music-popup-header">
+    <span class="music-eq" id="music-eq">
+      <span class="eq-bar"></span>
+      <span class="eq-bar"></span>
+      <span class="eq-bar"></span>
+      <span class="eq-bar"></span>
+    </span>
+    <span class="music-title" id="music-title">🎵 Nhạc nền tốt nghiệp</span>
+    <button class="music-popup-close" id="music-popup-close" aria-label="Đóng">✕</button>
+  </div>
+  <div class="music-controls">
+    <button class="music-play-btn" id="music-play-btn" aria-label="Phát/Dừng nhạc">▶</button>
+    <div class="music-vol-wrap">
+      <span style="font-size:13px;">🔉</span>
+      <input type="range" id="music-vol" min="0" max="1" step="0.05" value="0.5" class="vol-slider" aria-label="Âm lượng">
+      <span style="font-size:13px;">🔊</span>
+    </div>
+  </div>
+  <div class="music-note">Đặt file nhạc vào thư mục <code>music/nhac-nen.mp3</code></div>
+</div>
 
 <!-- RSVP Toast -->
 <div id="rsvp-toast" role="alert" aria-live="polite">
@@ -1240,11 +1463,11 @@
     },
     {
       name: 'Trần Văn Đức',
-      role: 'Thành viên nhóm',
+      role: '🔒 Chưa tốt nghiệp (vì lý do rất... đặc biệt)',
       short: 'Đ',
       photo: 'images/duc.jpg', // 👈 Thêm đường dẫn ảnh vào đây, ví dụ: 'images/duc.jpg'
-      title: 'Lời mời từ Đức 🤝',
-      message: 'Mình rất mong Đức có mặt trong lễ tốt nghiệp để cùng chúc mừng và check-in với nhóm. Cảm ơn Đức vì những lần hỗ trợ, góp ý và đồng hành trong quá trình học tập, làm bài và hoàn thành dự án.'
+      title: 'Gửi khán giả đặc biệt 👀',
+      message: 'Đức với tư cách là KHÁN GIẢ. Không phải vì không giỏi, không phải vì lười, mà đơn giản là vì... chưa nộp chứng chỉ tiếng Anh. 😂 Bốn năm code C++, Java, làm đồ án thâu đêm, debug tới 3 giờ sáng — nhưng cái certificate B1 thì vẫn còn đang "đang xử lý". Thôi kệ, cứ đến chụp hình chung rồi năm sau tốt nghiệp một mình nhé. '
     },
     {
       name: 'Nguyễn Thị Thùy Trang',
@@ -1351,16 +1574,71 @@
   });
 
   /* ============================================================
-     MUSIC BUTTON (placeholder)
+     MUSIC PLAYER
   ============================================================ */
-  const musicBtn = document.getElementById('music-btn');
-  let musicOn = false;
+  const audio        = document.getElementById('bg-audio');
+  const musicBtn     = document.getElementById('music-btn');
+  const musicPopup   = document.getElementById('music-popup');
+  const musicPlayBtn = document.getElementById('music-play-btn');
+  const musicEq      = document.getElementById('music-eq');
+  const musicVol     = document.getElementById('music-vol');
+  const musicClose   = document.getElementById('music-popup-close');
 
-  musicBtn.addEventListener('click', function(){
-    musicOn = !musicOn;
-    this.textContent = musicOn ? '🔊' : '🔇';
-    this.title = musicOn ? 'Tắt nhạc' : 'Bật nhạc';
-    // You can add actual audio here: audio.play() / audio.pause()
+  audio.volume = 0.5;
+  let popupOpen = false;
+  let isPlaying = false;
+
+  function setPlaying(state) {
+    isPlaying = state;
+    if (state) {
+      audio.play().catch(() => {});
+      musicPlayBtn.textContent = '⏸';
+      musicBtn.textContent = '🔊';
+      musicBtn.classList.add('playing');
+      musicEq.classList.add('active');
+    } else {
+      audio.pause();
+      musicPlayBtn.textContent = '▶';
+      musicBtn.textContent = '🔇';
+      musicBtn.classList.remove('playing');
+      musicEq.classList.remove('active');
+    }
+  }
+
+  // Toggle popup
+  musicBtn.addEventListener('click', function() {
+    popupOpen = !popupOpen;
+    musicPopup.classList.toggle('show', popupOpen);
+  });
+
+  // Close popup
+  musicClose.addEventListener('click', function() {
+    popupOpen = false;
+    musicPopup.classList.remove('show');
+  });
+
+  // Play/Pause button inside popup
+  musicPlayBtn.addEventListener('click', function() {
+    setPlaying(!isPlaying);
+  });
+
+  // Volume slider
+  musicVol.addEventListener('input', function() {
+    audio.volume = parseFloat(this.value);
+  });
+
+  // Close popup when clicking outside
+  document.addEventListener('click', function(e) {
+    if (popupOpen && !musicPopup.contains(e.target) && e.target !== musicBtn) {
+      popupOpen = false;
+      musicPopup.classList.remove('show');
+    }
+  });
+
+  // Handle audio errors gracefully
+  audio.addEventListener('error', function() {
+    document.querySelector('.music-note').innerHTML =
+      '⚠️ Chưa có file nhạc. Đặt file vào <code>music/nhac-nen.mp3</code>';
   });
 
 </script>
