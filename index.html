@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thiệp Mời Lễ Trao Bằng Tốt Nghiệp CNTT 2026</title>
+  <meta name="description" content="Thiệp mời dự lễ trao bằng tốt nghiệp ngành Công nghệ thông tin - 07h00 ngày 16/06/2026 tại Sảnh tòa G, 120 Hoàng Minh Thảo, Đà Nẵng" />
+  <meta name="keywords" content="lễ tốt nghiệp, CNTT, Đà Nẵng, 2026, thiệp mời" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== DESIGN TOKENS ===== */
+    :root {
+      --bg-deep:    #05090f;
+      --bg-navy:    #0a1228;
+      --bg-card:    rgba(255,255,255,0.065);
+      --bg-card2:   rgba(255,255,255,0.12);
+      --border:     rgba(255,255,255,0.14);
+      --border-glow:rgba(70,224,255,0.45);
+      --text:       #f0f6ff;
+      --muted:      #8fa8c8;
+      --gold:       #ffd166;
+      --gold-light: #ffe9a0;
+      --cyan:       #3dd9f5;
+      --cyan-glow:  rgba(61,217,245,0.22);
+      --violet:     #a78bfa;
+      --violet-glow:rgba(167,139,250,0.2);
+      --green:      #5ef5a0;
+      --rose:       #ff6b8a;
+      --shadow-lg:  0 32px 80px rgba(0,0,0,0.5);
+      --shadow-card:0 8px 32px rgba(0,0,0,0.35);
+      --radius-xl:  28px;
+      --radius-lg:  20px;
+      --radius-md:  14px;
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Be Vietnam Pro", system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg-deep);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ===== ANIMATED BACKGROUND ===== */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .bg-gradient {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 0%, rgba(61,217,245,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 50% at 90% 10%, rgba(167,139,250,0.22) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 40% at 50% 90%, rgba(255,209,102,0.1) 0%, transparent 50%),
+        linear-gradient(160deg, var(--bg-deep) 0%, var(--bg-navy) 100%);
+    }
+
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black 0%, transparent 90%);
+    }
+
+    #particles-canvas {
+      position: absolute;
+      inset: 0;
+      opacity: 0.6;
+    }
+
+    /* ===== CONFETTI CANVAS ===== */
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    /* ===== LAYOUT ===== */
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1220px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0 40px;
+    }
+
+    /* ===== TOP BAR ===== */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(255,209,102,0.3), rgba(61,217,245,0.2));
+      border: 1px solid rgba(255,209,102,0.3);
+      box-shadow: 0 0 24px rgba(61,217,245,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+      font-size: 22px;
+      animation: float-hat 3s ease-in-out infinite;
+    }
+
+    @keyframes float-hat {
+      0%, 100% { transform: translateY(0) rotate(-3deg); }
+      50% { transform: translateY(-6px) rotate(3deg); }
+    }
+
+    .brand-text {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.8); }
+    }
+
+    #music-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.07);
+      color: var(--text);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      transition: all .2s ease;
+    }
+
+    #music-btn:hover {
+      background: rgba(255,255,255,0.14);
+      border-color: var(--border-glow);
+    }
+
+    /* ===== MAIN GRID ===== */
+    .grid-main {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* ===== GLASS CARD ===== */
+    .card {
+      border: 1px solid var(--border);
+      background: linear-gradient(160deg, var(--bg-card), rgba(255,255,255,0.035));
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-card);
+      transition: box-shadow .3s ease;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* ===== HERO CARD ===== */
+    .hero-card {
+      padding: 38px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-deco {
+      position: absolute;
+      right: -20px;
+      top: -20px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(61,217,245,0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-deco2 {
+      position: absolute;
+      left: -40px;
+      bottom: 60px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(167,139,250,0.1), transparent 70%);
+      pointer-events: none;
+    }
+
+    .code-deco {
+      position: absolute;
+      right: 38px;
+      top: 38px;
+      font-size: 64px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.04);
+      font-family: 'Courier New', monospace;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,209,102,0.35);
+      background: rgba(255,209,102,0.1);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 18px;
+      animation: shine-tag 3s ease-in-out infinite;
+    }
+
+    @keyframes shine-tag {
+      0%, 100% { box-shadow: 0 0 0 rgba(255,209,102,0); }
+      50% { box-shadow: 0 0 18px rgba(255,209,102,0.3); }
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 5vw, 62px);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .hero-sub {
+      font-size: clamp(20px, 3vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
+    }
+
+    .grad-text {
+      background: linear-gradient(95deg, #fff 10%, var(--gold) 45%, var(--cyan) 80%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% auto;
+      animation: grad-flow 4s linear infinite;
+    }
+
+    @keyframes grad-flow {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .hero-desc {
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.8;
+      max-width: 640px;
+      margin-bottom: 28px;
+      font-style: italic;
+      border-left: 3px solid rgba(255,209,102,0.4);
+      padding-left: 16px;
+    }
+
+    /* ===== INFO CARDS ===== */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .info-item {
+      padding: 16px 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      transition: all .22s ease;
+    }
+
+    .info-item:hover {
+      border-color: var(--border-glow);
+      background: rgba(61,217,245,0.08);
+      transform: translateY(-2px);
+    }
+
+    .info-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+
+    .info-label svg { opacity: 0.7; }
+
+    .info-value {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    /* ===== COUNTDOWN ===== */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .countdown-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .time-unit {
+      position: relative;
+      text-align: center;
+      padding: 16px 8px 14px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(160deg, rgba(61,217,245,0.12), rgba(61,217,245,0.04));
+      border: 1px solid rgba(61,217,245,0.22);
+      overflow: hidden;
+    }
+
+    .time-unit::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(61,217,245,0.6), transparent);
+    }
+
+    .time-num {
+      display: block;
+      font-size: clamp(22px, 3.5vw, 40px);
+      font-weight: 900;
+      color: var(--cyan);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      text-shadow: 0 0 24px rgba(61,217,245,0.5);
+      transition: all .3s ease;
+    }
+
+    .time-lbl {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 6px;
+    }
+
+    .time-unit.tick .time-num { transform: scale(1.05); }
+
+    /* ===== MAP ===== */
+    .map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .map-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 220px;
+      border: 0;
+      filter: hue-rotate(200deg) saturate(0.7) brightness(0.85);
+    }
+
+    .map-overlay-label {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(5,9,15,0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-glow);
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.08em;
+    }
+
+    /* ===== ACTION BUTTONS ===== */
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 700;
+      font-family: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(255,255,255,0.1);
+      transition: all .2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.35);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #0a0f1a;
+      border: none;
+      box-shadow: 0 4px 20px rgba(255,209,102,0.35);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 8px 32px rgba(255,209,102,0.5);
+      transform: translateY(-3px);
+    }
+
+    .btn-rsvp {
+      background: linear-gradient(135deg, rgba(94,245,160,0.2), rgba(61,217,245,0.15));
+      border-color: rgba(94,245,160,0.4);
+      color: var(--green);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-rsvp::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      opacity: 0;
+      transition: opacity .25s ease;
+    }
+
+    .btn-rsvp.confirmed {
+      animation: rsvp-pop .4s ease;
+      background: linear-gradient(135deg, rgba(94,245,160,0.3), rgba(61,217,245,0.2));
+      border-color: var(--green);
+    }
+
+    @keyframes rsvp-pop {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.1); }
+      70% { transform: scale(0.96); }
+      100% { transform: scale(1); }
+    }
+
+    .btn-rsvp span { position: relative; z-index: 1; }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar-card {
+      padding: 24px;
+      position: sticky;
+      top: 20px;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .sidebar-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(61,217,245,0.15);
+      border: 1px solid rgba(61,217,245,0.3);
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .sidebar-desc {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    /* ===== MEMBER TABS ===== */
+    .member-list {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .member-tab {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.055);
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      font-size: 14px;
+      transition: all .2s ease;
+    }
+
+    .member-tab:hover {
+      border-color: rgba(61,217,245,0.35);
+      background: rgba(61,217,245,0.08);
+      transform: translateX(-3px);
+    }
+
+    .member-tab.active {
+      border-color: var(--border-glow);
+      background: linear-gradient(135deg, rgba(61,217,245,0.15), rgba(255,209,102,0.08));
+      box-shadow: 0 0 0 1px rgba(61,217,245,0.15), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .member-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 15px;
+      color: #050b14;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .av-0 { background: linear-gradient(135deg, #3dd9f5, #a78bfa); }
+    .av-1 { background: linear-gradient(135deg, #ffd166, #ff9a3c); }
+    .av-2 { background: linear-gradient(135deg, #5ef5a0, #3dd9f5); }
+    .av-3 { background: linear-gradient(135deg, #ff6b8a, #a78bfa); }
+    .av-4 { background: linear-gradient(135deg, #a78bfa, #3dd9f5); }
+
+    .member-info { flex: 1; min-width: 0; }
+    .member-name {
+      font-weight: 700;
+      font-size: 13.5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .member-role {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .member-check {
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity .2s ease;
+    }
+
+    .member-tab.active .member-check { opacity: 1; }
+
+    /* ===== MESSAGE PANEL ===== */
+    .msg-panel {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      padding: 18px;
+      min-height: 220px;
+    }
+
+    .msg-panel.animating {
+      animation: panel-fade .3s ease;
+    }
+
+    @keyframes panel-fade {
+      from { opacity: 0; transform: translateY(10px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .msg-to {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .msg-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .msg-body {
+      color: #d8e6f5;
+      font-size: 13.5px;
+      line-height: 1.78;
+      margin-bottom: 14px;
+    }
+
+    .msg-details {
+      display: grid;
+      gap: 7px;
+    }
+
+    .msg-detail-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .msg-detail-row span:first-child { font-size: 14px; }
+
+    /* ===== TIMELINE SECTION ===== */
+    .timeline-section {
+      margin-top: 20px;
+      grid-column: 1 / -1;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .section-header h2 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .section-header::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .tl-card {
+      padding: 20px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: linear-gradient(160deg, var(--bg-card), rgba(255,255,255,0.03));
+      transition: all .25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tl-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--tl-color, var(--cyan));
+      opacity: 0.6;
+    }
+
+    .tl-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.22);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+    }
+
+    .tl-icon { font-size: 28px; margin-bottom: 10px; }
+    .tl-year {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .tl-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .tl-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    footer strong { color: var(--gold); }
+
+    /* ===== RSVP TOAST ===== */
+    #rsvp-toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      padding: 16px 22px;
+      border-radius: var(--radius-lg);
+      background: rgba(5,9,15,0.9);
+      border: 1px solid rgba(94,245,160,0.5);
+      backdrop-filter: blur(20px);
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 30px rgba(94,245,160,0.15);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all .4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    #rsvp-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 1020px) {
+      .grid-main {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-card {
+        position: static;
+      }
+      .member-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: calc(100% - 28px);
+        padding: 20px 0 32px;
+      }
+      .hero-card { padding: 24px; }
+      .info-grid { grid-template-columns: 1fr; }
+      .countdown-row { grid-template-columns: repeat(2, 1fr); }
+      .member-list { grid-template-columns: 1fr; }
+      .timeline-grid { grid-template-columns: 1fr; }
+      .topbar { flex-direction: column; align-items: flex-start; }
+      #rsvp-toast { left: 16px; right: 16px; bottom: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Animated background -->
+<div class="bg-layer">
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+  <canvas id="particles-canvas"></canvas>
+</div>
+
+<!-- Confetti canvas -->
+<canvas id="confetti-canvas"></canvas>
+
+<!-- RSVP Toast -->
+<div id="rsvp-toast" role="alert" aria-live="polite">
+  <span>🎉</span>
+  <span id="rsvp-toast-msg">Cảm ơn! Hẹn gặp bạn tại lễ tốt nghiệp! 🎓</span>
+</div>
+
+<main class="page">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo-box" aria-hidden="true">🎓</div>
+      <div class="brand-text">Graduation Invitation · CNTT 2026</div>
+    </div>
+    <div class="topbar-right">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        Đang mở đăng ký tham dự
+      </div>
+      <button id="music-btn" aria-label="Bật/tắt nhạc nền" title="Nhạc nền">🔇</button>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="grid-main">
+
+    <!-- HERO LEFT -->
+    <article class="card hero-card">
+      <div class="hero-deco" aria-hidden="true"></div>
+      <div class="hero-deco2" aria-hidden="true"></div>
+      <div class="code-deco" aria-hidden="true">&lt;/&gt;</div>
+
+      <div class="eyebrow">
+        🎉 Thiệp mời dự lễ tốt nghiệp
+      </div>
+
+      <h1 class="hero-title">
+        Lễ Trao Bằng <span class="grad-text">Tốt Nghiệp</span>
+      </h1>
+      <div class="hero-sub" style="color:var(--muted);">
+        Ngành <span style="color:var(--cyan);font-style:italic;">Công nghệ thông tin</span>
+      </div>
+
+      <p class="hero-desc">
+        "Sau một hành trình học tập và cố gắng, mình rất vui khi được mời bạn đến tham dự lễ trao bằng tốt nghiệp ngành Công nghệ thông tin. Sự có mặt của bạn sẽ là niềm vui và là một kỷ niệm rất ý nghĩa trong ngày đặc biệt này."
+      </p>
+
+      <!-- INFO GRID -->
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Thời gian
+          </div>
+          <div class="info-value">07h00 – Thứ Ba<br><span style="color:var(--gold)">16 / 06 / 2026</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Địa điểm
+          </div>
+          <div class="info-value">Sảnh tòa G<br><span style="color:var(--muted);font-size:13px;">120 Hoàng Minh Thảo, Đà Nẵng</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            Ngành học
+          </div>
+          <div class="info-value">Công nghệ<br><span style="color:var(--cyan)">Thông tin</span></div>
+        </div>
+      </div>
+
+      <!-- COUNTDOWN -->
+      <div class="section-label">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Đếm ngược đến ngày lễ
+      </div>
+      <div class="countdown-row" aria-label="Đếm ngược đến ngày lễ tốt nghiệp">
+        <div class="time-unit" id="tu-days">
+          <span class="time-num" id="cd-days">05</span>
+          <span class="time-lbl">Ngày</span>
+        </div>
+        <div class="time-unit" id="tu-hours">
+          <span class="time-num" id="cd-hours">00</span>
+          <span class="time-lbl">Giờ</span>
+        </div>
+        <div class="time-unit" id="tu-mins">
+          <span class="time-num" id="cd-mins">00</span>
+          <span class="time-lbl">Phút</span>
+        </div>
+        <div class="time-unit" id="tu-secs">
+          <span class="time-num" id="cd-secs">00</span>
+          <span class="time-lbl">Giây</span>
+        </div>
+      </div>
+
+      <!-- MAP -->
+      <div class="section-label">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+        Bản đồ địa điểm
+      </div>
+      <div class="map-wrap">
+        <iframe
+          title="Bản đồ địa điểm lễ trao bằng – Sảnh tòa G 120 Hoàng Minh Thảo Đà Nẵng"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=120+Ho%C3%A0ng+Minh+Th%E1%BA%A3o%2C+%C4%90%C3%A0+N%E1%BA%B5ng&output=embed">
+        </iframe>
+        <div class="map-overlay-label">📍 ĐÀ NẴNG</div>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="actions">
+        <a id="btn-map" class="btn btn-primary" target="_blank" rel="noopener"
+          href="https://www.google.com/maps/search/?api=1&query=120+Ho%C3%A0ng+Minh+Th%E1%BA%A3o,+%C4%90%C3%A0+N%E1%BA%B5ng">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Mở bản đồ
+        </a>
+        <a id="btn-cal" class="btn" target="_blank" rel="noopener"
+          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=L%E1%BB%85+trao+b%E1%BA%B1ng+t%E1%BB%91t+nghi%E1%BB%87p+CNTT+2026&dates=20260616T000000Z/20260616T020000Z&details=L%E1%BB%85+trao+b%E1%BA%B1ng+t%E1%BB%91t+nghi%E1%BB%87p+ng%C3%A0nh+CNTT+2026&location=S%E1%BA%A3nh+t%C3%B2a+G%2C+120+Ho%C3%A0ng+Minh+Th%E1%BA%A3o%2C+%C4%90%C3%A0+N%E1%BA%B5ng">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Thêm vào lịch
+        </a>
+        <button id="btn-rsvp" class="btn btn-rsvp" type="button" aria-label="Xác nhận tham dự lễ tốt nghiệp">
+          <span>✅ Tôi sẽ tham dự!</span>
+        </button>
+      </div>
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="card sidebar-card">
+      <div class="sidebar-header">
+        <h2 class="sidebar-title">Thành viên nhóm</h2>
+        <span class="badge">5 người</span>
+      </div>
+      <p class="sidebar-desc">Bấm vào từng thành viên để xem lời mời riêng và thông tin lễ.</p>
+
+      <div class="member-list" id="member-list" role="tablist" aria-label="Danh sách thành viên nhóm"></div>
+
+      <div class="msg-panel" id="msg-panel" role="tabpanel" aria-live="polite"></div>
+    </aside>
+
+  </div><!-- /grid-main -->
+
+  <!-- TIMELINE SECTION -->
+  <section class="timeline-section" aria-labelledby="tl-heading">
+    <div class="section-header">
+      <h2 id="tl-heading">🗓️ Hành trình của nhóm</h2>
+    </div>
+    <div class="timeline-grid">
+      <div class="tl-card" style="--tl-color:#3dd9f5">
+        <div class="tl-icon">📚</div>
+        <div class="tl-year">Năm 1 — 2022</div>
+        <div class="tl-title">Bắt đầu hành trình</div>
+        <div class="tl-desc">Làm quen với lập trình, cơ sở dữ liệu và những người bạn đồng hành đầu tiên trong ngành CNTT.</div>
+      </div>
+      <div class="tl-card" style="--tl-color:#a78bfa">
+        <div class="tl-icon">💻</div>
+        <div class="tl-year">Năm 2 — 2023</div>
+        <div class="tl-title">Xây dựng nền tảng</div>
+        <div class="tl-desc">Chinh phục các môn học chuyên ngành, bắt đầu làm đồ án nhóm và tích lũy kinh nghiệm thực tế.</div>
+      </div>
+      <div class="tl-card" style="--tl-color:#ffd166">
+        <div class="tl-icon">🚀</div>
+        <div class="tl-year">Năm 3 — 2024</div>
+        <div class="tl-title">Đồ án & thực tập</div>
+        <div class="tl-desc">Cùng nhau vượt qua những đêm code đồ án, thực tập và bảo vệ các dự án quan trọng.</div>
+      </div>
+      <div class="tl-card" style="--tl-color:#5ef5a0">
+        <div class="tl-icon">🎓</div>
+        <div class="tl-year">16/06/2026</div>
+        <div class="tl-title">Lễ tốt nghiệp!</div>
+        <div class="tl-desc">Điểm đến của 4 năm cố gắng. Cùng chung vui, chụp ảnh và ghi lại kỷ niệm đẹp nhất!</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made with ❤️ for <strong>Graduation Day 2026</strong> · Ngành Công nghệ thông tin</p>
+    <p style="margin-top:4px;font-size:12px;">Quang · Đông · Đức · Trang · Trọng</p>
+  </footer>
+
+</main>
+
+<script>
+  /* ============================================================
+     PARTICLES BACKGROUND
+  ============================================================ */
+  (function(){
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, pts;
+
+    function resize(){
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+
+    function initPts(){
+      pts = Array.from({length: 55}, () => ({
+        x: Math.random()*W, y: Math.random()*H,
+        vx: (Math.random()-.5)*.28, vy: (Math.random()-.5)*.28,
+        r: Math.random()*1.8+.6,
+        alpha: Math.random()*.5+.15
+      }));
+    }
+
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      pts.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if(p.x<0) p.x=W; if(p.x>W) p.x=0;
+        if(p.y<0) p.y=H; if(p.y>H) p.y=0;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(61,217,245,${p.alpha})`;
+        ctx.fill();
+      });
+      // connect close points
+      for(let i=0;i<pts.length;i++){
+        for(let j=i+1;j<pts.length;j++){
+          const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y;
+          const d=Math.sqrt(dx*dx+dy*dy);
+          if(d<100){
+            ctx.beginPath();
+            ctx.strokeStyle=`rgba(61,217,245,${.07*(1-d/100)})`;
+            ctx.lineWidth=.5;
+            ctx.moveTo(pts[i].x,pts[i].y);
+            ctx.lineTo(pts[j].x,pts[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', ()=>{ resize(); initPts(); });
+    resize(); initPts(); draw();
+  })();
+
+  /* ============================================================
+     CONFETTI
+  ============================================================ */
+  (function(){
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    window.addEventListener('resize', ()=>{
+      canvas.width=window.innerWidth;
+      canvas.height=window.innerHeight;
+    });
+
+    const COLORS = ['#ffd166','#3dd9f5','#a78bfa','#5ef5a0','#ff6b8a','#fff'];
+    let pieces = [];
+    let running = false;
+
+    function createPiece(x, y){
+      return {
+        x, y,
+        w: Math.random()*8+4,
+        h: Math.random()*5+2,
+        color: COLORS[Math.floor(Math.random()*COLORS.length)],
+        vx: (Math.random()-0.5)*6,
+        vy: Math.random()*-6 - 2,
+        gravity: 0.22,
+        rotation: Math.random()*360,
+        rotV: (Math.random()-0.5)*8,
+        alpha: 1,
+        fade: Math.random()*0.012+0.008
+      };
+    }
+
+    window.launchConfetti = function(cx, cy){
+      for(let i=0;i<120;i++) pieces.push(createPiece(cx, cy));
+      if(!running){ running=true; animConf(); }
+    };
+
+    function animConf(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      pieces = pieces.filter(p => p.alpha > 0);
+      pieces.forEach(p=>{
+        p.x += p.vx;
+        p.vy += p.gravity;
+        p.y += p.vy;
+        p.rotation += p.rotV;
+        p.alpha -= p.fade;
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, p.alpha);
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation * Math.PI/180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+        ctx.restore();
+      });
+      if(pieces.length > 0) requestAnimationFrame(animConf);
+      else running = false;
+    }
+
+    // Auto launch on load
+    setTimeout(()=>{
+      window.launchConfetti(window.innerWidth/2, -20);
+    }, 600);
+  })();
+
+  /* ============================================================
+     COUNTDOWN
+  ============================================================ */
+  const eventDate = new Date('2026-06-16T07:00:00+07:00').getTime();
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+
+  function updateCountdown(){
+    const diff = eventDate - Date.now();
+    if(diff <= 0){
+      ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent='00');
+      return;
+    }
+    const days    = Math.floor(diff / 86400000);
+    const hours   = Math.floor((diff % 86400000) / 3600000);
+    const minutes = Math.floor((diff % 3600000)  / 60000);
+    const seconds = Math.floor((diff % 60000)    / 1000);
+
+    const vals = {days, hours, minutes, seconds};
+    const ids  = {days:'cd-days', hours:'cd-hours', minutes:'cd-mins', seconds:'cd-secs'};
+    const tids = {days:'tu-days', hours:'tu-hours', minutes:'tu-mins', seconds:'tu-secs'};
+
+    Object.keys(vals).forEach(k=>{
+      const el = document.getElementById(ids[k]);
+      const tu = document.getElementById(tids[k]);
+      const newVal = pad(vals[k]);
+      if(el.textContent !== newVal){
+        el.textContent = newVal;
+        tu.classList.remove('tick');
+        void tu.offsetWidth;
+        tu.classList.add('tick');
+      }
+    });
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  /* ============================================================
+     MEMBER TABS
+  ============================================================ */
+  const members = [
+    {
+      name: 'Trần Minh Quang',
+      role: 'Thành viên nhóm',
+      short: 'Q',
+      title: 'Gửi Quang 👋',
+      message: 'Mình rất vui nếu Quang có mặt trong buổi lễ trao bằng tốt nghiệp này. Cảm ơn Quang vì đã đồng hành trong chặng đường học tập và làm dự án cùng nhóm. Mong hôm đó anh em mình có một tấm hình thật đẹp để lưu lại kỷ niệm.'
+    },
+    {
+      name: 'Nguyễn Hữu Đông',
+      role: 'Người tổ chức',
+      short: 'Đ',
+      title: 'Lời mời từ Đông 🎓',
+      message: 'Sau những tháng năm miệt mài với bài vở, đồ án, những dòng code và cả những lần vấp ngã, hôm nay mình chính thức khép lại một chặng đường đáng nhớ. Lễ trao bằng không chỉ là khoảnh khắc nhận lấy thành quả, mà còn là dịp để mình gửi lời cảm ơn đến những người đã đồng hành, tin tưởng và động viên mình suốt thời gian qua. Mình rất mong mọi người có thể đến chung vui, cùng lưu lại vài tấm ảnh và chứng kiến một cột mốc thật đẹp trong hành trình trưởng thành của mình.'
+    },
+    {
+      name: 'Trần Văn Đức',
+      role: 'Thành viên nhóm',
+      short: 'Đ',
+      title: 'Gửi Đức 🤝',
+      message: 'Mình rất mong Đức có mặt trong lễ tốt nghiệp để cùng chúc mừng và check-in với nhóm. Cảm ơn Đức vì những lần hỗ trợ, góp ý và đồng hành trong quá trình học tập, làm bài và hoàn thành dự án.'
+    },
+    {
+      name: 'Nguyễn Thị Thùy Trang',
+      role: 'Thành viên nhóm',
+      short: 'T',
+      title: 'Gửi Trang 🌸',
+      message: 'Mình rất vui nếu Trang đến tham dự lễ trao bằng tốt nghiệp. Đây sẽ là dịp để cả nhóm cùng nhìn lại hành trình đã qua, chúc mừng nhau và lưu lại những bức ảnh kỷ niệm thật đẹp.'
+    },
+    {
+      name: 'Lê Hữu Trọng',
+      role: 'Thành viên nhóm',
+      short: 'T',
+      title: 'Gửi Trọng 💪',
+      message: 'Mình rất mong Trọng có mặt trong ngày tốt nghiệp này. Cảm ơn Trọng vì đã cùng nhóm vượt qua các giai đoạn học tập, làm đồ án và hoàn thành chặng đường đại học đáng nhớ.'
+    }
+  ];
+
+  const memberList = document.getElementById('member-list');
+  const msgPanel   = document.getElementById('msg-panel');
+  let activeIdx = 0;
+
+  function renderMembers(){
+    memberList.innerHTML = members.map((m, i) => `
+      <button
+        class="member-tab${i===activeIdx?' active':''}"
+        onclick="selectMember(${i})"
+        role="tab"
+        aria-selected="${i===activeIdx}"
+        id="tab-${i}"
+        aria-controls="msg-panel"
+      >
+        <span class="member-avatar av-${i}">${m.short}</span>
+        <span class="member-info">
+          <span class="member-name">${m.name}</span>
+          <span class="member-role">${m.role}</span>
+        </span>
+        <span class="member-check">✓</span>
+      </button>
+    `).join('');
+  }
+
+  function renderMessage(idx){
+    const m = members[idx];
+    msgPanel.classList.remove('animating');
+    void msgPanel.offsetWidth;
+    msgPanel.classList.add('animating');
+    msgPanel.innerHTML = `
+      <div class="msg-to">Lời mời gửi đến</div>
+      <div class="msg-title">${m.title}</div>
+      <p class="msg-body">${m.message}</p>
+      <div class="msg-details">
+        <div class="msg-detail-row">
+          <span>⏰</span>
+          <span>07h00, Thứ Ba, ngày 16 tháng 06 năm 2026</span>
+        </div>
+        <div class="msg-detail-row">
+          <span>📍</span>
+          <span>Sảnh tòa G, 120 Hoàng Minh Thảo, Đà Nẵng</span>
+        </div>
+        <div class="msg-detail-row">
+          <span>🎓</span>
+          <span>Lễ trao bằng tốt nghiệp ngành Công nghệ thông tin</span>
+        </div>
+      </div>
+    `;
+  }
+
+  window.selectMember = function(idx){
+    activeIdx = idx;
+    renderMembers();
+    renderMessage(idx);
+  };
+
+  renderMembers();
+  renderMessage(0);
+
+  /* ============================================================
+     RSVP BUTTON
+  ============================================================ */
+  const rsvpBtn   = document.getElementById('btn-rsvp');
+  const rsvpToast = document.getElementById('rsvp-toast');
+  const rsvpMsg   = document.getElementById('rsvp-toast-msg');
+  let rsvpDone = false;
+
+  rsvpBtn.addEventListener('click', function(e){
+    if(rsvpDone) return;
+    rsvpDone = true;
+    this.querySelector('span').textContent = '🎉 Đã xác nhận!';
+    this.classList.add('confirmed');
+    this.disabled = true;
+
+    // Confetti at button position
+    const rect = this.getBoundingClientRect();
+    window.launchConfetti(rect.left + rect.width/2, rect.top + rect.height/2);
+
+    // Toast
+    rsvpMsg.textContent = 'Cảm ơn bạn đã xác nhận! Hẹn gặp ở lễ tốt nghiệp 🎓';
+    rsvpToast.classList.add('show');
+    setTimeout(()=> rsvpToast.classList.remove('show'), 4500);
+  });
+
+  /* ============================================================
+     MUSIC BUTTON (placeholder)
+  ============================================================ */
+  const musicBtn = document.getElementById('music-btn');
+  let musicOn = false;
+
+  musicBtn.addEventListener('click', function(){
+    musicOn = !musicOn;
+    this.textContent = musicOn ? '🔊' : '🔇';
+    this.title = musicOn ? 'Tắt nhạc' : 'Bật nhạc';
+    // You can add actual audio here: audio.play() / audio.pause()
+  });
+
+</script>
+</body>
+</html>
