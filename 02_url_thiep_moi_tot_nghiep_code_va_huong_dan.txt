@@ -1,0 +1,675 @@
+FILE URL THIỆP MỜI — CODE + HƯỚNG DẪN LẤY URL PUBLIC
+======================================================
+
+Lưu ý quan trọng
+----------------
+Mình chưa thể tự publish trực tiếp lên tài khoản Vercel/Netlify/GitHub của bạn từ trong cuộc trò chuyện này, nên chưa thể tạo ra một URL public thật ngay lập tức.
+Tuy nhiên, nội dung bên dưới là code thiệp mời hoàn chỉnh. Bạn chỉ cần lưu thành file index.html rồi deploy là sẽ có URL dạng:
+
+- Vercel: https://ten-project-cua-ban.vercel.app
+- Netlify: https://ten-site-cua-ban.netlify.app
+- GitHub Pages: https://username.github.io/ten-repo
+
+Cách nhanh nhất để có URL
+-------------------------
+Cách 1: Netlify Drop, không cần code nhiều
+1. Tạo một thư mục tên graduation-invitation.
+2. Tạo file index.html trong thư mục đó.
+3. Copy toàn bộ code HTML ở phần dưới vào file index.html.
+4. Vào Netlify Drop.
+5. Kéo thả cả thư mục graduation-invitation vào trang Netlify Drop.
+6. Netlify sẽ cấp ngay một URL public.
+
+Cách 2: Vercel
+1. Tạo repo GitHub mới, ví dụ graduation-invitation.
+2. Upload file index.html lên repo.
+3. Vào Vercel > Add New Project > Import repo.
+4. Framework Preset chọn Other.
+5. Deploy.
+6. Sau khi deploy xong, Vercel sẽ cấp URL public.
+
+Cách 3: GitHub Pages
+1. Tạo repo GitHub tên graduation-invitation.
+2. Upload file index.html.
+3. Vào Settings > Pages.
+4. Source chọn Deploy from a branch.
+5. Branch chọn main, folder chọn /root.
+6. Save và chờ GitHub tạo URL.
+
+Thông tin đã đưa vào thiệp
+--------------------------
+- Sự kiện: Lễ trao bằng tốt nghiệp ngành Công nghệ thông tin
+- Thời gian: 07h00, Thứ Ba, ngày 16/06/2026
+- Địa điểm: Sảnh tòa G, 120 Hoàng Minh Thảo, Đà Nẵng
+- Thành viên tab: Trần Minh Quang, Nguyễn Hữu Đông, Trần Văn Đức, Nguyễn Thị Thùy Trang, Lê Hữu Trọng
+- Có bản đồ Google Maps nhúng sẵn
+- Có countdown
+- Có nút mở bản đồ
+- Có nút thêm vào Google Calendar
+
+Cách sửa tên / lời mời
+----------------------
+Trong file index.html, tìm đoạn:
+const members = [ ... ];
+Sau đó sửa name, role, title, message theo ý bạn.
+
+CODE FILE index.html
+====================
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thiệp mời lễ trao bằng tốt nghiệp CNTT</title>
+  <meta name="description" content="Thiệp mời dự lễ trao bằng tốt nghiệp ngành Công nghệ thông tin" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #08111f;
+      --bg-2: #101b3d;
+      --card: rgba(255, 255, 255, 0.09);
+      --card-2: rgba(255, 255, 255, 0.14);
+      --border: rgba(255, 255, 255, 0.18);
+      --text: #f7fbff;
+      --muted: #b9c6d8;
+      --gold: #ffd166;
+      --cyan: #46e0ff;
+      --violet: #a78bfa;
+      --success: #7CFFB2;
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Be Vietnam Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(70, 224, 255, 0.22), transparent 34%),
+        radial-gradient(circle at 75% 20%, rgba(167, 139, 250, 0.28), transparent 34%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(255, 209, 102, 0.28), rgba(70, 224, 255, 0.18));
+      border: 1px solid var(--border);
+      box-shadow: 0 0 30px rgba(70, 224, 255, 0.16);
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.05));
+      backdrop-filter: blur(18px);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 34px;
+      min-height: 720px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "</>";
+      position: absolute;
+      right: 34px;
+      top: 34px;
+      font-size: 72px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.055);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      gap: 8px;
+      align-items: center;
+      padding: 9px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 209, 102, 0.28);
+      background: rgba(255, 209, 102, 0.08);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(36px, 6vw, 74px);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #fff, var(--gold), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+      margin: 0 0 24px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 26px 0;
+    }
+
+    .info-card {
+      padding: 18px;
+      border-radius: 22px;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+
+    .info-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .info-card strong {
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 20px 0 26px;
+    }
+
+    .time-box {
+      text-align: center;
+      padding: 18px 10px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(70, 224, 255, 0.15), rgba(255, 255, 255, 0.06));
+      border: 1px solid rgba(70, 224, 255, 0.24);
+    }
+
+    .time-box b {
+      display: block;
+      font-size: clamp(24px, 4vw, 38px);
+      color: var(--cyan);
+    }
+
+    .time-box small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .map-wrap {
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      margin-top: 10px;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 230px;
+      border: 0;
+      filter: saturate(0.95) contrast(1.02);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--card-2);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .btn.primary {
+      color: #06111f;
+      border: none;
+      background: linear-gradient(135deg, var(--gold), #ffe8a3);
+    }
+
+    .side {
+      padding: 22px;
+      position: sticky;
+      top: 20px;
+      height: fit-content;
+    }
+
+    .side h2 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .side p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .tabs {
+      display: grid;
+      gap: 10px;
+    }
+
+    .tab {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text);
+      border-radius: 18px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      text-align: left;
+      transition: .18s ease;
+      font-family: inherit;
+    }
+
+    .tab:hover,
+    .tab.active {
+      transform: translateX(-4px);
+      background: linear-gradient(135deg, rgba(70, 224, 255, 0.18), rgba(255, 209, 102, 0.12));
+      border-color: rgba(70, 224, 255, 0.5);
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      color: #06111f;
+      background: linear-gradient(135deg, var(--cyan), var(--gold));
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .tab-title {
+      display: block;
+      font-weight: 700;
+    }
+
+    .tab-role {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .message-panel {
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.08);
+      min-height: 235px;
+      animation: fade .25s ease;
+    }
+
+    .message-panel h3 {
+      margin: 0 0 10px;
+      color: var(--gold);
+      font-size: 20px;
+    }
+
+    .message-panel p {
+      margin: 0 0 12px;
+      line-height: 1.72;
+      color: #e8eef8;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .mini-list div {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    footer {
+      margin-top: 20px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 980px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .side {
+        position: static;
+      }
+
+      .tabs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 22px, 1180px);
+        padding: 18px 0;
+      }
+
+      .top-bar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero,
+      .side {
+        padding: 20px;
+        border-radius: 22px;
+      }
+
+      .info-grid,
+      .countdown,
+      .tabs {
+        grid-template-columns: 1fr;
+      }
+
+      iframe {
+        height: 210px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="top-bar">
+      <div class="brand">
+        <div class="logo">🎓</div>
+        <div>Graduation Invitation · IT</div>
+      </div>
+      <div class="pill">Nhóm 36 · Kỷ niệm tốt nghiệp 2026</div>
+    </div>
+
+    <section class="layout">
+      <article class="hero card">
+        <div>
+          <div class="eyebrow">🎉 Thiệp mời dự lễ tốt nghiệp</div>
+          <h1>Lễ Trao Bằng <span class="gradient-text">Tốt Nghiệp</span></h1>
+          <p class="subtitle">
+            Sau một hành trình học tập và cố gắng, mình rất vui khi được mời mọi người đến tham dự lễ trao bằng tốt nghiệp ngành Công nghệ thông tin. Sự có mặt của mọi người sẽ là niềm vui và là một kỷ niệm rất ý nghĩa trong ngày đặc biệt này.
+          </p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <span>Thời gian</span>
+              <strong>07h00<br>Thứ Ba, 16/06/2026</strong>
+            </div>
+            <div class="info-card">
+              <span>Địa điểm</span>
+              <strong>Sảnh tòa G<br>120 Hoàng Minh Thảo</strong>
+            </div>
+            <div class="info-card">
+              <span>Ngành</span>
+              <strong>Công nghệ<br>thông tin</strong>
+            </div>
+          </div>
+
+          <div class="countdown" aria-label="Countdown đến ngày lễ">
+            <div class="time-box"><b id="days">00</b><small>Ngày</small></div>
+            <div class="time-box"><b id="hours">00</b><small>Giờ</small></div>
+            <div class="time-box"><b id="minutes">00</b><small>Phút</small></div>
+            <div class="time-box"><b id="seconds">00</b><small>Giây</small></div>
+          </div>
+
+          <div class="map-wrap">
+            <iframe
+              title="Bản đồ địa điểm lễ trao bằng"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=S%E1%BA%A3nh%20t%C3%B2a%20G%2C%20120%20Ho%C3%A0ng%20Minh%20Th%E1%BA%A3o%2C%20%C4%90%C3%A0%20N%E1%BA%B5ng&output=embed">
+            </iframe>
+          </div>
+
+          <div class="actions">
+            <a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=S%E1%BA%A3nh%20t%C3%B2a%20G%2C%20120%20Ho%C3%A0ng%20Minh%20Th%E1%BA%A3o%2C%20%C4%90%C3%A0%20N%E1%BA%B5ng">📍 Mở bản đồ</a>
+            <a class="btn" target="_blank" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=L%E1%BB%85%20trao%20b%E1%BA%B1ng%20t%E1%BB%91t%20nghi%E1%BB%87p%20CNTT&dates=20260616T000000Z/20260616T020000Z&details=Thi%E1%BB%87p%20m%E1%BB%9Di%20d%E1%BB%B1%20l%E1%BB%85%20trao%20b%E1%BA%B1ng%20t%E1%BB%91t%20nghi%E1%BB%87p%20ng%C3%A0nh%20C%C3%B4ng%20ngh%E1%BB%87%20th%C3%B4ng%20tin.&location=S%E1%BA%A3nh%20t%C3%B2a%20G%2C%20120%20Ho%C3%A0ng%20Minh%20Th%E1%BA%A3o%2C%20%C4%90%C3%A0%20N%E1%BA%B5ng">🗓️ Thêm vào lịch</a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="side card">
+        <h2>Dashboard thành viên</h2>
+        <p>Bấm vào từng thành viên để xem lời mời và thông tin lễ.</p>
+
+        <div class="tabs" id="tabs"></div>
+        <div class="message-panel" id="messagePanel"></div>
+      </aside>
+    </section>
+
+    <footer>
+      Made with ❤️ for Graduation Day · Nguyễn Hữu Đông
+    </footer>
+  </main>
+
+  <script>
+    const eventDate = new Date("2026-06-16T07:00:00+07:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = eventDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").textContent = String(days).padStart(2, "0");
+      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    const members = [
+      {
+        name: "Trần Minh Quang",
+        role: "Thành viên nhóm",
+        avatar: "Q",
+        title: "Gửi Quang",
+        message: "Mình rất vui nếu Quang có mặt trong buổi lễ trao bằng tốt nghiệp này. Cảm ơn Quang vì đã đồng hành trong chặng đường học tập và làm dự án cùng nhóm. Mong hôm đó anh em mình có một tấm hình thật đẹp để lưu lại kỷ niệm."
+      },
+      {
+        name: "Nguyễn Hữu Đông",
+        role: "Người mời",
+        avatar: "Đ",
+        title: "Lời mời từ Đông",
+        message: "Đây là một ngày rất ý nghĩa với mình sau nhiều cố gắng trong ngành Công nghệ thông tin. Mình mong mọi người có thể đến chung vui, chụp ảnh và cùng lưu lại khoảnh khắc tốt nghiệp thật đáng nhớ."
+      },
+      {
+        name: "Trần Văn Đức",
+        role: "Thành viên nhóm",
+        avatar: "Đ",
+        title: "Gửi Đức",
+        message: "Mình rất mong Đức có mặt trong lễ tốt nghiệp để cùng chúc mừng và check-in với nhóm. Cảm ơn Đức vì những lần hỗ trợ, góp ý và đồng hành trong quá trình học tập, làm bài và hoàn thành dự án."
+      },
+      {
+        name: "Nguyễn Thị Thùy Trang",
+        role: "Thành viên nhóm",
+        avatar: "T",
+        title: "Gửi Trang",
+        message: "Mình rất vui nếu Trang đến tham dự lễ trao bằng tốt nghiệp. Đây sẽ là dịp để cả nhóm cùng nhìn lại hành trình đã qua, chúc mừng nhau và lưu lại những bức ảnh kỷ niệm thật đẹp."
+      },
+      {
+        name: "Lê Hữu Trọng",
+        role: "Thành viên nhóm",
+        avatar: "T",
+        title: "Gửi Trọng",
+        message: "Mình rất mong Trọng có mặt trong ngày tốt nghiệp này. Cảm ơn Trọng vì đã cùng nhóm vượt qua các giai đoạn học tập, làm đồ án và hoàn thành chặng đường đại học đáng nhớ."
+      }
+    ];
+
+    const tabs = document.getElementById("tabs");
+    const panel = document.getElementById("messagePanel");
+
+    function renderTabs(activeIndex = 0) {
+      tabs.innerHTML = members.map((member, index) => `
+        <button class="tab ${index === activeIndex ? "active" : ""}" onclick="selectMember(${index})">
+          <span class="avatar">${member.avatar}</span>
+          <span>
+            <span class="tab-title">${member.name}</span>
+            <span class="tab-role">${member.role}</span>
+          </span>
+        </button>
+      `).join("");
+    }
+
+    function selectMember(index) {
+      const member = members[index];
+      renderTabs(index);
+      panel.style.animation = "none";
+      panel.offsetHeight;
+      panel.style.animation = null;
+      panel.innerHTML = `
+        <h3>${member.title}</h3>
+        <p>${member.message}</p>
+        <div class="mini-list">
+          <div>⏰ 07h00, Thứ Ba, ngày 16/06/2026</div>
+          <div>📍 Sảnh tòa G, 120 Hoàng Minh Thảo, Đà Nẵng</div>
+          <div>🎓 Lễ trao bằng tốt nghiệp ngành Công nghệ thông tin</div>
+        </div>
+      `;
+    }
+
+    renderTabs(0);
+    selectMember(0);
+  </script>
+</body>
+</html>

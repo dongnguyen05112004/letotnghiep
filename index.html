@@ -1226,13 +1226,15 @@
       name: 'Trần Minh Quang',
       role: 'Thành viên nhóm',
       short: 'Q',
-      title: 'Gửi Quang 👋',
+      photo: 'images/quang.png', // 👈 Thêm đường dẫn ảnh vào đây, ví dụ: 'images/quang.jpg'
+      title: 'Lời mời từ Quang 👋',
       message: 'Mình rất vui nếu Quang có mặt trong buổi lễ trao bằng tốt nghiệp này. Cảm ơn Quang vì đã đồng hành trong chặng đường học tập và làm dự án cùng nhóm. Mong hôm đó anh em mình có một tấm hình thật đẹp để lưu lại kỷ niệm.'
     },
     {
       name: 'Nguyễn Hữu Đông',
       role: 'Người tổ chức',
       short: 'Đ',
+      photo: 'images/dong.jpg', // 👈 Thêm đường dẫn ảnh vào đây, ví dụ: 'images/dong.jpg'
       title: 'Lời mời từ Đông 🎓',
       message: 'Sau những tháng năm miệt mài với bài vở, đồ án, những dòng code và cả những lần vấp ngã, hôm nay mình chính thức khép lại một chặng đường đáng nhớ. Lễ trao bằng không chỉ là khoảnh khắc nhận lấy thành quả, mà còn là dịp để mình gửi lời cảm ơn đến những người đã đồng hành, tin tưởng và động viên mình suốt thời gian qua. Mình rất mong mọi người có thể đến chung vui, cùng lưu lại vài tấm ảnh và chứng kiến một cột mốc thật đẹp trong hành trình trưởng thành của mình.'
     },
@@ -1240,21 +1242,24 @@
       name: 'Trần Văn Đức',
       role: 'Thành viên nhóm',
       short: 'Đ',
-      title: 'Gửi Đức 🤝',
+      photo: 'images/duc.jpg', // 👈 Thêm đường dẫn ảnh vào đây, ví dụ: 'images/duc.jpg'
+      title: 'Lời mời từ Đức 🤝',
       message: 'Mình rất mong Đức có mặt trong lễ tốt nghiệp để cùng chúc mừng và check-in với nhóm. Cảm ơn Đức vì những lần hỗ trợ, góp ý và đồng hành trong quá trình học tập, làm bài và hoàn thành dự án.'
     },
     {
       name: 'Nguyễn Thị Thùy Trang',
       role: 'Thành viên nhóm',
       short: 'T',
-      title: 'Gửi Trang 🌸',
+      photo: 'images/trang.png', // 👈 Thêm đường dẫn ảnh vào đây, ví dụ: 'images/trang.jpg'
+      title: 'Lời mời từ Trang 🌸',
       message: 'Mình rất vui nếu Trang đến tham dự lễ trao bằng tốt nghiệp. Đây sẽ là dịp để cả nhóm cùng nhìn lại hành trình đã qua, chúc mừng nhau và lưu lại những bức ảnh kỷ niệm thật đẹp.'
     },
     {
       name: 'Lê Hữu Trọng',
       role: 'Thành viên nhóm',
       short: 'T',
-      title: 'Gửi Trọng 💪',
+      photo: 'images/trong.png', // 👈 Thêm đường dẫn ảnh vào đây, ví dụ: 'images/trong.jpg'
+      title: 'Lời mời từ Trọng 💪',
       message: 'Mình rất mong Trọng có mặt trong ngày tốt nghiệp này. Cảm ơn Trọng vì đã cùng nhóm vượt qua các giai đoạn học tập, làm đồ án và hoàn thành chặng đường đại học đáng nhớ.'
     }
   ];
@@ -1273,7 +1278,10 @@
         id="tab-${i}"
         aria-controls="msg-panel"
       >
-        <span class="member-avatar av-${i}">${m.short}</span>
+        ${m.photo
+          ? `<span class="member-avatar av-${i}" style="padding:0;overflow:hidden;"><img src="${m.photo}" alt="${m.name}" style="width:100%;height:100%;object-fit:cover;border-radius:13px;"></span>`
+          : `<span class="member-avatar av-${i}">${m.short}</span>`
+        }
         <span class="member-info">
           <span class="member-name">${m.name}</span>
           <span class="member-role">${m.role}</span>
@@ -1288,8 +1296,7 @@
     msgPanel.classList.remove('animating');
     void msgPanel.offsetWidth;
     msgPanel.classList.add('animating');
-    msgPanel.innerHTML = `
-      <div class="msg-to">Lời mời gửi đến</div>
+    msgPanel.innerHTML = ` 
       <div class="msg-title">${m.title}</div>
       <p class="msg-body">${m.message}</p>
       <div class="msg-details">

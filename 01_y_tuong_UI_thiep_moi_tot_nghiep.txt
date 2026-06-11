@@ -1,0 +1,99 @@
+Ý TƯỞNG THIẾT KẾ UI — THIỆP MỜI LỄ TRAO BẰNG TỐT NGHIỆP CNTT
+=================================================================
+
+Thông tin chính
+---------------
+- Sự kiện: Lễ trao bằng tốt nghiệp ngành Công nghệ thông tin
+- Thời gian: 07h00, Thứ Ba, ngày 16/06/2026
+- Địa điểm: Sảnh tòa G, 120 Hoàng Minh Thảo, Đà Nẵng
+- Nhóm thành viên: Trần Minh Quang, Nguyễn Hữu Đông, Trần Văn Đức, Nguyễn Thị Thùy Trang, Lê Hữu Trọng
+
+1. Concept tổng thể
+-------------------
+Thiệp mời nên mang phong cách “Tech Graduation Dashboard”: vừa trang trọng cho lễ tốt nghiệp, vừa đúng tinh thần ngành CNTT.
+Giao diện nên giống một dashboard hiện đại, có card thông tin, tab thành viên, countdown, bản đồ và nút hành động.
+
+Tông màu gợi ý:
+- Nền chính: xanh đen / navy / đen tím công nghệ
+- Màu nhấn: vàng tốt nghiệp, xanh cyan, tím nhẹ
+- Card: glassmorphism, nền trong mờ, viền sáng nhẹ
+- Text: trắng, xám nhạt, vàng nhấn cho thông tin quan trọng
+
+2. Bố cục đề xuất
+-----------------
+Desktop:
+- Bên trái: phần thiệp chính
+  + Tiêu đề: “Lễ Trao Bằng Tốt Nghiệp”
+  + Ngành: Công nghệ thông tin
+  + Dòng mô tả: lời mời trang trọng từ Đông / nhóm
+  + Card thời gian, địa điểm, countdown
+  + Bản đồ Google Maps
+  + Nút: “Mở bản đồ”, “Thêm vào lịch”
+
+- Bên phải: dashboard thành viên
+  + Danh sách 5 thành viên dạng tab
+  + Mỗi tab có avatar chữ cái đầu, tên, vai trò nhỏ
+  + Khi bấm tab, khu vực nội dung đổi thành lời mời riêng cho thành viên đó
+
+Mobile:
+- Tiêu đề ở trên
+- Dashboard thành viên chuyển thành thanh tab ngang hoặc card xếp dọc
+- Bản đồ co lại theo chiều rộng màn hình
+- Các nút lớn, dễ bấm bằng điện thoại
+
+3. Ý tưởng tab thành viên
+-------------------------
+Mỗi thành viên là một tab, khi bấm sẽ hiển thị:
+- Tên thành viên
+- Một dòng thân mật: “Mình rất mong bạn có mặt...”
+- Thông tin lễ: thời gian, địa điểm
+- Một lời nhắn riêng ngắn gọn
+- CTA: “Xem bản đồ” hoặc “Lưu lịch”
+
+Ví dụ nội dung tab:
+- Quang: lời mời đại diện người đồng hành trong nhóm
+- Đông: tab chính / người mời
+- Đức: lời mời vui vẻ, cùng check-in tốt nghiệp
+- Trang: lời mời trang trọng, chụp ảnh kỷ niệm
+- Trọng: lời mời gợi nhắc hành trình làm đồ án / học tập
+
+4. Các hiệu ứng UI nên thêm
+---------------------------
+- Countdown đến ngày lễ: ngày / giờ / phút / giây
+- Hiệu ứng hover card nổi nhẹ
+- Tab active có viền sáng hoặc gradient
+- Background có chấm sáng, grid hoặc line giống dashboard công nghệ
+- Hiệu ứng fade khi đổi tab
+- Icon nhỏ cho thời gian, địa điểm, bản đồ, lịch
+
+5. Thành phần nên có trên thiệp
+-------------------------------
+- Tên sự kiện
+- Ngành tốt nghiệp
+- Thời gian rõ ràng: 07h00, 16/06/2026
+- Địa điểm rõ ràng: Sảnh tòa G, 120 Hoàng Minh Thảo, Đà Nẵng
+- Bản đồ nhúng Google Maps
+- Lời mời chính
+- Danh sách thành viên nhóm
+- Nút mở bản đồ
+- Nút thêm vào Google Calendar
+
+6. Lời mời mẫu ngắn gọn
+-----------------------
+“Sau một hành trình học tập và cố gắng, mình rất vui khi được mời bạn đến tham dự lễ trao bằng tốt nghiệp ngành Công nghệ thông tin. Sự có mặt của bạn sẽ là niềm vui và là một kỷ niệm rất ý nghĩa trong ngày đặc biệt này.”
+
+7. Gợi ý nâng cấp nếu muốn đẹp hơn
+----------------------------------
+- Thêm ảnh nhóm hoặc ảnh cá nhân tốt nghiệp ở hero section
+- Thêm nhạc nền nhẹ, nhưng nên có nút bật/tắt
+- Thêm QR Code dẫn đến bản đồ hoặc URL thiệp mời
+- Thêm section “Kỷ niệm nhóm” với timeline học tập / làm đồ án
+- Thêm nút xác nhận tham dự: “Tôi sẽ tham dự”
+- Thêm animation mũ tốt nghiệp / confetti khi mở trang
+
+8. Lưu ý khi deploy thành URL
+-----------------------------
+- Nếu dùng Netlify Drop: kéo thả thư mục chứa index.html là có URL ngay.
+- Nếu dùng Vercel: upload repo lên GitHub rồi import vào Vercel.
+- Nếu dùng GitHub Pages: bật Pages trong Settings của repo.
+- File chính phải đặt tên là index.html.
